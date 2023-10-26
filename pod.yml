@@ -1,4 +1,4 @@
-apiVersion: v1
+apiVersion: v2
 #####kind will be pod 
 kind: Pod ##pod is the name of the api
 metadata:
@@ -7,4 +7,6 @@ spec: ##we are define the specification about the pod
   containers: ##inside the pod we are going to run a container
     - image: httpd:2.4.41-alpine ##this is the name of the container-image
       name: pod1-container
+    - image: httpd:2.4.41-alpine
+      name: pod2-container
 ###to deploy your container workload in k8s
