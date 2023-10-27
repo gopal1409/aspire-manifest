@@ -1,28 +1,39 @@
-###iuf i apply this manifest file what it will do 
 apiVersion: v1
-kind: Pod 
+kind: Pod
 metadata:
   name: counter
 spec:
   containers:
-    - name: count 
-      image: busybox ##it is an image you can use it to run shell script. 
-      args:
-      - /bin/bash
-      - -c
-      - >
-        i = 0;
-        while true;
-        do 
-         echo "$i: $(date)" >> /var/log/1.log;
-         echo "$(date) INFO $i" >> /var/log/2.log;
+  - name: count
+    image: busybox:1.28
+    args:
+    - /bin/sh
+    - -c
+    - >
+      i=0;
+      while true;
+      do
+        echo "$i: $(date)" >> /var/log/1.log;
+        echo "$(date) INFO $i" >> /var/log/2.log;
         i=$((i+1));
         sleep 1;
-        done;
-      volumeMounts:
-        - name: varlog 
-          mountPath: /var/log 
-
+      done      
+    volumeMounts:
+    - name: varlog
+      mountPath: /var/log
+  - name: count-log-1
+    image: busybox:1.28
+    args: [/bin/sh, -c, 'tail -n+1 -F /var/log/1.log']
+    volumeMounts:
+    - name: varlog
+      mountPath: /var/log
+  - name: count-log-2
+    image: busybox:1.28
+    args: [/bin/sh, -c, 'tail -n+1 -F /var/log/2.log']
+    volumeMounts:
+    - name: varlog
+      mountPath: /var/log
   volumes:
-  - name: varlog 
-    emptyDir: {}        
+  - name: varlog
+    emptyDir: {}
+
