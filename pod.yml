@@ -5,8 +5,8 @@ metadata:
   name: webserver #using metadata name we define the pod name
 spec: ##we are define the specification about the pod
   containers: ##inside the pod we are going to run a container
-    - image: httpd:2.4.41-alpine ##this is the name of the container-image
-      name: pod1-container
-    - image: httpd:2.4.41-alpine
-      name: pod2-container
+    - image: nginx ##this is the name of the container-image
+      name: nginx 
+    - image: consul
+      name: consul 
 ###to deploy your container workload in k8s
