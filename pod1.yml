@@ -1,3 +1,4 @@
+
 apiVersion: v1
 kind: Pod
 metadata:
@@ -6,6 +7,9 @@ spec:
   containers:
   - name: count
     image: busybox:1.28
+    ##every day on a particular time it execute some job collect data from the stockmarket
+    ##it do some anlysis all the top performing customer in 1.log file
+    ###put all the low performing customer in 2. log
     args:
     - /bin/sh
     - -c
@@ -22,12 +26,14 @@ spec:
     - name: varlog
       mountPath: /var/log
   - name: count-log-1
+  ##will push the top performing customer to an all the customer
     image: busybox:1.28
     args: [/bin/sh, -c, 'tail -n+1 -F /var/log/1.log']
     volumeMounts:
     - name: varlog
       mountPath: /var/log
   - name: count-log-2
+  ##poor perfomring customer detaisl also need to be shared. 
     image: busybox:1.28
     args: [/bin/sh, -c, 'tail -n+1 -F /var/log/2.log']
     volumeMounts:

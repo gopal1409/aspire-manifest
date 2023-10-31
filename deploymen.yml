@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+  name: myapp-deployment
+###this deployment required what specfication for this deployment
+spec: #specification of deployment
+  replicas: 3 #it will create three pod
+  ##now this three pod need to controled by the deployment
+  ##once this three pod is created the replicaset need to find which pod to manage
+  ##kubernetes to do mapping they use a simpel basic mather called label and selector
+  selector:
+
+    matchLabels:
+      app: myapp
+      ##app: mysql
+      ###spec.selector.matchLabels it is like an map of key value pair 
+  ##we need to laucn container inside all this three pod. 
+  ###to do the same we will create something called as template
+  template:
+    metadata:
+      name: myapp-template
+  ##this template need to be maped with your pod
+      labels: 
+        app: myapp
+    spec: #this is the specification about your template 
+      containers:
+        - name: myweb 
+          image: nginx 
+          ports:
+            - containerPort: 80
