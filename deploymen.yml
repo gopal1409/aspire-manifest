@@ -25,6 +25,7 @@ spec: #specification of deployment
     spec: #this is the specification about your template 
       containers:
         - name: myweb 
-          image: nginx 
+          image: nginx:1.16.1
           ports:
             - containerPort: 80
+        
