@@ -1,13 +1,18 @@
-apiVersion: apps/v1
-kind: Deployment 
+####kubectl apply -f deployment.yml
+apiVersion: apps/v1 #it invoke an api apps/v1
+kind: Deployment  #the name of the api
 metadata:
-  name: myapp-deployment
+  name: myapp-deployment ##using metadata name we create a deployment
 ###this deployment required what specfication for this deployment
 spec: #specification of deployment
+###once we creaste the deployment we are defining specification of the deployment
+#specification is divided into three part
+##1. replicaset which will create the number of pod
   replicas: 3 #it will create three pod
   ##now this three pod need to controled by the deployment
   ##once this three pod is created the replicaset need to find which pod to manage
   ##kubernetes to do mapping they use a simpel basic mather called label and selector
+#second is selector purpose of selector is to connect the pod with your deployment using label
   selector:
 
     matchLabels:
@@ -16,6 +21,8 @@ spec: #specification of deployment
       ###spec.selector.matchLabels it is like an map of key value pair 
   ##we need to laucn container inside all this three pod. 
   ###to do the same we will create something called as template
+  ###all the three pod we have created will have similar configuration we pass the similar configuration using 
+  #$##template block
   template:
     metadata:
       name: myapp-template
