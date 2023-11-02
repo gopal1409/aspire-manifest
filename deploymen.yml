@@ -17,6 +17,8 @@ spec: #specification of deployment
 
     matchLabels:
       app: myapp
+  
+
       ##app: mysql
       ###spec.selector.matchLabels it is like an map of key value pair 
   ##we need to laucn container inside all this three pod. 
