@@ -12,7 +12,10 @@ spec:
   #persistentVolumeReclaimPolicy: Recycle #immediate when you delete your pod the volume will be also deleted
   ###against this we are goign to create a pod if the pod get deleted volume will be there but 
   ##all the data will be clean up. 
-  #storageClassName: slow
+  #storageClassName: slow, EBS azure blob storage
+ # Standard, Premuim Ultradisk
+  #HDD,SSD,Nvm
+  ###normal hdd we are using
   hostPath:
     path: /mnt/data
   #mountOptions:
