@@ -11,6 +11,7 @@ spec:
       labels:
         app: mysql 
     spec:
+    ##in this specification we have two block one is container second is volumes
       containers:
       - name: mysql 
         image: mysql:5.6
@@ -24,9 +25,16 @@ spec:
         - containerPort: 3306
       ###when i deploy this container. it should map with your pvc
         volumeMounts:
-          - name: mysql-pvc-1 
+          - name: mysql-pvc
             mountPath: /var/lib/mysql
+          - name: usermgmt-script 
+            mountPath: /docker-entrypoint-initdb.d
       volumes: 
         - name: mysql-pvc
           persistentVolumeClaim:
             claimName: task-pv-claim
+        - name: usermgmt-script
+          configMap:
+            name: usermanagement-db-creation-script
+            #this is going to run while launching your mysql pod
+            ###volume mount name and volume name should match
