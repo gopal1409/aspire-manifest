@@ -35,6 +35,6 @@ spec:
             claimName: task-pv-claim
         - name: usermgmt-script
           configMap:
-            name: usermanagement-db-creation-script
+            name: usermgmt-database-script
             #this is going to run while launching your mysql pod
             ###volume mount name and volume name should match
