@@ -5,9 +5,9 @@ metadata:
   namespace: dev 
 spec:
   hard:
-    requests.cpu: "1"
+    requests.cpu: "1" ##maximum pod can request cpu
     requests.memory: 1Gi
-    limits.cpu: "2"
+    limits.cpu: "2" #max cpu utilization in namespace
     limits.memory: 2Gi
     pods: "4"
     secrets: "10"
