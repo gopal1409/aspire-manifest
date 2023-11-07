@@ -12,4 +12,6 @@ spec:
     pods: "4"
     secrets: "10"
     services: "10"
+
+   # 9000 deployment
    
