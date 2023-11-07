@@ -6,8 +6,8 @@ metadata:
 subject: 
 - kind: Group 
   name: dev 
-  apiGroups: rbac.authorization.k8s.io/v1
+  apiGroups: rbac.authorization.k8s.io
 roleRef: 
   kind: Role 
   name: readonly 
-  apiGroups: rbac.authorization.k8s.io/v1
+  apiGroups: rbac.authorization.k8s.io
