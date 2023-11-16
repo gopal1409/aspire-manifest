@@ -8,5 +8,5 @@ spec:
       containers:
       - name: node-app-job 
         image: alpine
-        command: ["echo","welcome to my Node APP"]
+        command: ["echo","welcome to my Node APP1"]
       restartPolicy: Never #if your master machine get restarted the job will restart again. 
