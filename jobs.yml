@@ -6,6 +6,7 @@ spec:
   #completions: 2 #this job is going to run by two pods
   #parallelism: 2 ##by default we put completion two means this job is being completed by two pod one by pne
   ##parallelism : it will create both the pod samultenously and run your job
+  backoffLimits: 2
   template:
     spec:
       containers:
