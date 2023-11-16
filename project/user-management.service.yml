@@ -7,7 +7,7 @@ metadata:
 spec:
   type: NodePort
   selector:
-    app: usermgmt-restapp
+    app: usermgmt-webapp
   ports: 
     - port: 80
       targetPort: 8080
