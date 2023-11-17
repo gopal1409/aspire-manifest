@@ -38,3 +38,4 @@ spec:
             name: usermgmt-database-script
             #this is going to run while launching your mysql pod
             ###volume mount name and volume name should match
+      
