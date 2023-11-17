@@ -36,7 +36,7 @@ spec:
         volumeMounts:
         - name: www
           mountPath: /usr/share/nginx/html
-    volumes: 
-    - name: www
-      persistentVolumeClaim:
-        claimName: state-pv-claim
+      volumes: 
+      - name: www
+        persistentVolumeClaim:
+          claimName: state-pv-claim
